@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Svenska Ultramemes ursäktsgenerator</title>
+</head>
+<body>
+    <div class="container mx-auto px-4 flex flex-col justify-items-center items-center pt-8">
+        <h1 class="text-4xl">Svenska Ultramemes ursäktsgenerator</h1>
+        <div id="excuse" class="pt-12 text-6xl self-center text-center"></div>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-8" onclick="generateExcuse()">Generera ny ursäkt</button>
+    </div>
+    
+    <script>
+    const intro = [
+    "Ledsen, kan inte komma på grund av att",
+    "Ursäkta min frånvaro",
+    "Hörde du att",
+    "Jag kan inte för",
+    "Jag vet att du kommer bli besviken men",
+    "Alltså, plötsligt ba'",
+    "Det bär emot mig men",
+    "Det kommer som en dålig ursäkt men",
+    ]
+    const who = [
+    "Killian Jornet",
+    "Lars Noréns demoner",
+    "mitt ex",
+    "grannens katt",
+    "en ledsen clown",
+    "Racebävern",
+    "Ockelbomaffian",
+    "en löpinfluencer från Stockholm",
+    ]
+    const reason = [
+    "har kapat mitt Stravakonto!",
+    "gömde mina skor!",
+    "tog alla mina gels!",
+    "hällde grus i vasselinburken!",
+    "laddade ur min Garmin!",
+    "sket nyss i sängen!",
+    "åt upp min hamster!",
+    "gav mig gonorré!",
+    ]
+
+    function getRandomIntro() {
+      return intro[Math.floor(Math.random() * intro.length)];
+    }
+    function getRandomReason() {
+      return reason[Math.floor(Math.random() * reason.length)];
+    }
+    function getRandomWho() {
+      return who[Math.floor(Math.random() * who.length)];
+    }
+
+    function generateExcuse(seed) {
+        const excuse = `${getRandomIntro()} ${getRandomWho()} ${getRandomReason()}`
+        document.getElementById("excuse").innerText = excuse;
+    } 
+
+    
+window.onload = function() {
+    generateExcuse()
+}
+    </script>
+</body>
+</html>
+
