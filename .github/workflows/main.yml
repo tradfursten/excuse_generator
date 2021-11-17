@@ -33,4 +33,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: npm run build
+        env: # Or as an environment variable
+          CREDENTIALS: ${{ secrets.CREDENTIALS }}
 
