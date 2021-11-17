@@ -7,10 +7,12 @@ const sheets = google.sheets('v4');
 
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 const GCLOUD_PROJECT = "excusegenerator"
-let privatekey = JSON.parse(process.env.CREDENTIALS)
+let privatekey 
 
-if ("local" === process.env.ENV) {
+if ("local" === process.env.ENV) { 
       privatekey = require("../../../Downloads/excusegenerator-a5505eccfd66.json")
+} else {
+      privatekey = JSON.parse(process.env.CREDENTIALS)
 }
 
 async function doStuff() {
