@@ -1,0 +1,141 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script type="text/javascript" language="javascript" src="reasons.json"></script> 
+
+    <title>Svenska Ultramemes ursäktsgenerator</title>
+</head>
+<body>
+    <div class="container mx-auto px-4 flex flex-col justify-items-center items-center pt-8">
+        <h1 class="text-4xl text-center">Svenska Ultramemes ursäktsgenerator</h1>
+        <div id="excuse" style="overflow-wrap: anywhere;" class="pt-12 text-4xl self-center text-center"></div>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-8" onclick="generateExcuse()">Generera ny ursäkt</button>
+    </div>
+    
+    <script>
+    const intro = [
+    "Ledsen, kan inte komma på grund av att",
+    "Ursäkta min frånvaro",
+    "Hörde du att",
+    "Jag kan inte för",
+    "Jag vet att du kommer bli besviken men",
+    "Alltså, plötsligt ba'",
+    "Det bär emot mig men",
+    "Det kommer som en dålig ursäkt men",
+"Alltså vafan, men",
+"Söte Göte,",
+"Du…",
+"Har du hört att",
+"Ledsen jag är sen men",
+"Låt mig bara säga att",
+"Innan du blir arg, låt mig först säga att",
+"Du är den förste som får höra att",
+"Ur det blå såg jag när",
+"Du kommer aldrig att kunna ana, men",
+"Du kommer inte att tro mig, men",
+"Du borde pausa klockan, för",
+"Bomber och granater",
+    ]
+    const who = [
+    "Killian Jornet",
+    "Lars Noréns demoner",
+    "mitt ex",
+    "grannens katt",
+    "en ledsen clown",
+    "Racebävern",
+    "Ockelbomaffian",
+    "en löpinfluencer från Stockholm",
+    "Eliud Kipchoge",
+    "Jonas Buud",
+    "Bolibompadraken",
+    "en trött skoförsäljare på The Stadium",
+    "Rune Larsson",
+    "UTMB:s poängräknare",
+    "Kullamannen",
+    "Bockstensmannen",
+    "en mellandistanslöpare",
+    "Lazarus Lake",
+    "min mamma",
+    "din mamma",
+    "din pappa",
+    "Ida Nilsson",
+    "Emelie Forsmark",
+    "Mimmi Kotkas hund",
+    "Lars Vegas Trio",
+    "Bg Nilensjö",
+    "Forrest Gump",
+    "Sven Jerring",
+    "Babben Larsen",
+    "en funktionär",
+    "Sekritariatet",
+    "Tävlingsledningen",
+    "en grävande reporter på Uppdrag Granskning",
+    "en mellanchef i löpartights",
+    "Johnny Hellneby",
+    "Jesus",
+    ]
+    const reason = [
+    "har kapat mitt Stravakonto!",
+    "gömde mina skor!",
+    "tog alla mina gels!",
+    "hällde grus i vasselinburken!",
+    "laddade ur min Garmin!",
+    "sket nyss i sängen!",
+    "åt upp min hamster!",
+    "gav mig gonorré!",
+    "åt upp mina pingvinstänger!",
+    "krympte mina skor!",
+    "bussade sin hund på mig!",
+    "tvingade mig in i El Kotts van!",
+    "skulle tvunget visa ett Youtube-klipp från Barkleys Marathons.",
+    "gav mig rövskav!",
+    "bländade mig med en 100.000 lumens pannlampa!",
+    "intervjuade mig till sin podcast.",
+    "tappade mina UTMB-running stones!",
+    "knöt ihop mina skosnören!",
+    "insisterade på att bjuda mig på en proteinshake ",
+    "ville springa in mina nya skor ",
+    "ville ha hjälp att ladda upp en gpx i sin klocka.",
+    "ville ta en selfie med mig!",
+    "knuffade mig nedför en rutschkana!",
+    "begärde att jag skulle hämta en otransparent bajspåse!",
+    "busringde i mitt namn till Länsstyrelsen!",
+    "tog mig Buff och gick iväg bakom ett buskage.",
+    "lade in fel gpx i min klocka!",
+    "spädde ut min sportdryck!",
+    "faxade mina förfalskade resultat till D.U.V!",
+    "tappade den fjärde säkerhetsnålen till nummerlappen!",
+    "levde rövare i spåret!",
+    "åt upp min majonäs!",
+    "spydde i min dropbag!",
+    "snodde mina kolfiberplattor!",
+    "bjöd in mig på en kopp kaffe!",
+    "tvingade mig att börja en runstreak!"
+
+
+          ]
+    function getRandomIntro() {
+      return jsonObject.intro[Math.floor(Math.random() * jsonObject.intro.length)];
+    }
+    function getRandomReason() {
+      return jsonObject.reason[Math.floor(Math.random() * jsonObject.reason.length)];
+    }
+    function getRandomWho() {
+      return jsonObject.who[Math.floor(Math.random() * jsonObject.who.length)];
+    }
+
+    function generateExcuse(seed) {
+        const excuse = `${getRandomIntro()} ${getRandomWho()} ${getRandomReason()}`
+        document.getElementById("excuse").innerText = excuse;
+    } 
+
+    
+window.onload = function() {
+    generateExcuse()
+}
+    </script>
+</body>
+</html>
+
