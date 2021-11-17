@@ -1,13 +1,18 @@
 console.log("Initiate build")
 
 console.log("Fetch from google spreadsheet")
-
+const fs = require('fs').promises;
 const { google } = require('googleapis')
 const sheets = google.sheets('v4');
 
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 const GCLOUD_PROJECT = "excusegenerator"
-const privatekey = require("../../../Downloads/excusegenerator-a5505eccfd66.json")
+let privatekey = process.env.CREDENTIALS
+
+if ("local" === process.env.ENV) {
+      privatekey = require("../../../Downloads/excusegenerator-a5505eccfd66.json")
+}
+
 async function doStuff() {
       // configure a JWT auth client
       let jwtClient = new google.auth.JWT(
@@ -25,7 +30,7 @@ async function doStuff() {
             auth: jwtClient,
             spreadsheetId: spreadsheetId,
             range: sheetName
-      }, function (err, response) {
+      }, async function (err, response) {
             if (err) {
                   console.log('The API returned an error: ' + err);
             } else {
@@ -42,6 +47,13 @@ async function doStuff() {
                         }
                   }
                   console.log(res)
+                  await fs.writeFile("build/test.json", JSON.stringify(res), "utf-8") 
+                  console.log("JSON file has been saved.");
+                  const file = (await fs.readFile("index.html")).toString()
+                  const newFile = file.replace("#INSERT_HERE#", JSON.stringify(res))
+                  await fs.writeFile("build/index.html", newFile, "utf-8")
+                  
+            //})
             }
       });
 }

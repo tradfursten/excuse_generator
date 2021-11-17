@@ -13,6 +13,7 @@
     </div>
     
     <script>
+    const jsonObject = #INSERT_HERE#
     const intro = [
     "Ledsen, kan inte komma på grund av att",
     "Ursäkta min frånvaro",
@@ -115,13 +116,13 @@
 
           ]
     function getRandomIntro() {
-      return intro[Math.floor(Math.random() * intro.length)];
+      return jsonObject.intro[Math.floor(Math.random() * jsonObject.intro.length)];
     }
     function getRandomReason() {
-      return reason[Math.floor(Math.random() * reason.length)];
+      return jsonObject.reason[Math.floor(Math.random() * jsonObject.reason.length)];
     }
     function getRandomWho() {
-      return who[Math.floor(Math.random() * who.length)];
+      return jsonObject.who[Math.floor(Math.random() * jsonObject.who.length)];
     }
 
     function generateExcuse(seed) {
